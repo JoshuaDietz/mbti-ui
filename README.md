@@ -1,3 +1,19 @@
+# Mercedes UI Coding Challenge
+## Assumptions made
+The following assumptions were made by me during the implementation of the given task:
+- don't restrict the api to just return images of specific sizes. In the image it looks like part of the task is to handle images of different sizes and display them in a visually appealing way. That's why I don't use the features of the api that allow to crop the returned images to a specific size.
+- use the *author* field of the image metadata as a caption for the image. That's the only useful text that I can find for each image
+- The requirement that the first letter of each word of the images caption is small and the others are capital is not a typo in the requirements.
+- It should be possible to load more images by clicking a button at the end of the list. Alternatively it would be possible to implement a scrollspy which automatically triggers a reload when the user scrolls near the end of the page
+
+## Basic process:
+With this assumptions in mind the basic process should look like this:
+1. Get a list of a number of images by utilizing the api endpoint `https://picsum.photos/v2/list`
+
+
+
+
+The project was bootstrapped with `create-react-app`. During this bootstrapping the following readme was created:
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
