@@ -10,3 +10,10 @@ body {
 .masonry-item {
   max-width: 19%;
 }
+
+.header {
+  background-color: black;
+  padding: 0.5rem;
+  padding-bottom: 2rem;
+  color: white;
+}
