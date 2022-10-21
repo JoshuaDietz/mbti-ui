@@ -7,7 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.card {
-  max-width: 100px;
-  max-height: 500px;
+.masonry-item {
+  max-width: 19%;
 }

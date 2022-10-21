@@ -28,7 +28,7 @@ export default class Card extends Component {
         return (
             <div className="card">
                 <img src={this.props.url} />
-                <div className="card-caption">
+                <div className="card-text">
                     {this.state.caption}
                 </div>
             </div>
