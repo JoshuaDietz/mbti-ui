@@ -14,12 +14,14 @@ export default class CardList extends Component {
     }
 
     componentDidMount() {
+        //load first images as soon as the component is mounted
         this.loadPage()
     }
 
     componentDidUpdate() {
 
-        //rebuild grid as soon as images have loaded
+        //rebuild grid as soon as all images have loaded and every time something updates (i.e. more images are loaded)
+        //this snippet is inspired by a post on stackoverflow but I could've done it myself too
         Promise.all([...document.querySelectorAll('.masonry-wrapper img')]
         .filter((img) => {return !img.complete })
         .map((img) => {
@@ -34,12 +36,17 @@ export default class CardList extends Component {
         
     }
 
+    /**
+     * Triggers a rebuilding of the whole grid. 
+     * This is probably not the most efficient way to recalculate the layout, there's room for optimization
+     */
     rebuildGrid() {
         this.masonry = new Masonry( '.masonry-wrapper', {columnWidth: 20});
     }
 
-    //as soon as I have internet again this has to be moved to the right place
-    
+    /**
+     * Handles the click on the loadMore button
+     */
     handleNextPage() {
         let nextPage = this.state.currentPage + 1
         this.loadPage(nextPage)
@@ -48,6 +55,11 @@ export default class CardList extends Component {
         })
     }
 
+    /**
+     * Loads the images for the given page and always pushes them 
+     * to the end of the list with images (even if a page in between is loaded which is out of the scope of our implementation)
+     * @param {*} page 
+     */
     async loadPage(page) {
         let imageList = await getImageList(page)
 

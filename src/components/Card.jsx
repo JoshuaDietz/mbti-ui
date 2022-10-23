@@ -9,6 +9,12 @@ export default class Card extends Component {
         this.formatCaption()
     }
 
+    /**
+     * Formats the caption like requested in the task.
+     * This is a method for which unit tests may be useful.
+     * To do unit tests it could be best to move this outside the component
+     * and into a function in a different file.
+     */
     formatCaption() {
         let originalCaption = this.props.caption
 

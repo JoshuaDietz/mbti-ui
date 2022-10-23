@@ -1,16 +1,20 @@
 # Mercedes UI Coding Challenge
 ## Assumptions made
 The following assumptions were made by me during the implementation of the given task:
-- don't restrict the api to just return images of specific sizes. In the image it looks like part of the task is to handle images of different sizes and display them in a visually appealing way. That's why I don't use the features of the api that allow to crop the returned images to a specific size.
+- don't restrict the api to just return images of specific sizes. In the picture in the task it looks like part of the task is to handle images of different sizes and display them in a visually appealing way. That's why I don't use the features of the api that allow to crop the returned images to a specific size. This also means that the loading times can be high since I'm loading images in original quality.
 - use the *author* field of the image metadata as a caption for the image. That's the only useful text that I can find for each image
 - The requirement that the first letter of each word of the images caption is small and the others are capital is not a typo in the requirements.
 - It should be possible to load more images by clicking a button at the end of the list. Alternatively it would be possible to implement a scrollspy which automatically triggers a reload when the user scrolls near the end of the page
+- I assume that it's okay to use the masonry library to layout the pictures. Doing this on my own is not that hard but costs time that I don't have right now and I can't see an advantage in an own implementation.
+- I am aware that in the specific scenario I could utilize the size information provided by the api to layout the pictures. But since in many real life scenarios this information is not available I decided to not use the size information provided by the api
+- since I'm on vacation right now and the internet is not that good I unfortunatelly have to do a minimal implementation of the whole task.
 
-## Basic process:
-With this assumptions in mind the basic process should look like this:
-1. Get a list of a number of images by utilizing the api endpoint `https://picsum.photos/v2/list`
-
-
+## Installation & running
+- `node` and `npm` have to be installed
+- clone the github repositiory
+- in the root of the repository run `npm i` to install the dependencies
+- to run the project in development mode use `npm start` which will be default start a local server on `localhost:3000` and automatically open this url in the browser
+- a production build can be done by `npm run build` which will output the final code into the `build` folder
 
 
 The project was bootstrapped with `create-react-app`. During this bootstrapping the following readme was created:
